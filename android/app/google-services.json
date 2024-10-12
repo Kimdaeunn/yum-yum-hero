@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "450573658218",
+    "project_id": "yumyumhero-1e0f6",
+    "storage_bucket": "yumyumhero-1e0f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:450573658218:android:14b9ed9eedc4504d7b8213",
+        "android_client_info": {
+          "package_name": "com.yumyumhero.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "450573658218-26fjce6fmlgulcuid37t3tfji3dujt0v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yumyumhero.firebase",
+            "certificate_hash": "3a5b37e4ae25be259e02ab8527631f17bc0029cf"
+          }
+        },
+        {
+          "client_id": "450573658218-j13ujvm0oe9gc8ifpnm4soeq7gefmbte.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yumyumhero.firebase",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "450573658218-cike9ngpchr06q7r2emm90ubrl4dm5mq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0Hc8pKjQNDXSNZHWNqp4MLWcggWxWEcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "450573658218-cike9ngpchr06q7r2emm90ubrl4dm5mq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "450573658218-d2s1gjuihuqk8nr62d0qbmn8eqofq3eg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yumyumhero.firebase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
