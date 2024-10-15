@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -78,13 +79,35 @@ class _MapWidgetState extends State<MapWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Container(
-                width: double.infinity,
-                height: MediaQuery.sizeOf(context).height * 0.8,
-                child: custom_widgets.NaverMapWidget(
-                  width: double.infinity,
-                  height: MediaQuery.sizeOf(context).height * 0.8,
-                ),
+              StreamBuilder<List<PlacesRecord>>(
+                stream: queryPlacesRecord(),
+                builder: (context, snapshot) {
+                  // Customize what your widget looks like when it's loading.
+                  if (!snapshot.hasData) {
+                    return Center(
+                      child: SizedBox(
+                        width: 50.0,
+                        height: 50.0,
+                        child: SpinKitDoubleBounce(
+                          color: FlutterFlowTheme.of(context).primary,
+                          size: 50.0,
+                        ),
+                      ),
+                    );
+                  }
+                  List<PlacesRecord> naverMapWidgetPlacesRecordList =
+                      snapshot.data!;
+
+                  return Container(
+                    width: double.infinity,
+                    height: MediaQuery.sizeOf(context).height * 0.8,
+                    child: custom_widgets.NaverMapWidget(
+                      width: double.infinity,
+                      height: MediaQuery.sizeOf(context).height * 0.8,
+                      placeList: naverMapWidgetPlacesRecordList,
+                    ),
+                  );
+                },
               ),
             ],
           ),
