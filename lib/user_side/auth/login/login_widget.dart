@@ -531,27 +531,36 @@ class _LoginWidgetState extends State<LoginWidget> {
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            await actions.kakaoLogin();
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                content: Text(
-                                                  'kakaoLogin ran',
-                                                  style: TextStyle(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryText,
+                                            _model.displayName =
+                                                await actions.kakaoLogin();
+                                            if (currentUserDisplayName !=
+                                                    null &&
+                                                currentUserDisplayName != '') {
+                                              context.goNamed('HomeScreen');
+                                            } else {
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(
+                                                SnackBar(
+                                                  content: Text(
+                                                    '다시 시도해주세요',
+                                                    style: TextStyle(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                    ),
                                                   ),
+                                                  duration: Duration(
+                                                      milliseconds: 4000),
+                                                  backgroundColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .secondary,
                                                 ),
-                                                duration: Duration(
-                                                    milliseconds: 4000),
-                                                backgroundColor:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                              ),
-                                            );
+                                              );
+                                            }
 
-                                            context.pushNamed('HomeScreen');
+                                            safeSetState(() {});
                                           },
                                           child: Container(
                                             width: 45.0,

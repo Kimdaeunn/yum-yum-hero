@@ -1,9 +1,11 @@
-const functions = require('firebase-functions');
-const admin = require('firebase-admin');
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
 // To avoid deployment errors, do not call admin.initializeApp() in your code
 
-exports.createCustomToken = functions.region('asia-northeast3').https.onCall( async (data, context) => {
-		const user = data.user;
+exports.createCustomToken = functions
+  .region("asia-northeast3")
+  .https.onCall(async (data, context) => {
+    const user = data.user;
     // Write your code below!
     try {
       await admin.auth().createUser(user);
@@ -28,5 +30,4 @@ exports.createCustomToken = functions.region('asia-northeast3').https.onCall( as
     }
 
     // Write your code above!
-  }
-);
+  });

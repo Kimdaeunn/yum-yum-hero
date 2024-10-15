@@ -23,6 +23,8 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   String? Function(BuildContext, String?)? passwordLoginTextControllerValidator;
   // State field(s) for Checkbox widget.
   bool? checkboxValue;
+  // Stores action output result for [Custom Action - kakaoLogin] action in CircleImage widget.
+  String? displayName;
 
   @override
   void initState(BuildContext context) {

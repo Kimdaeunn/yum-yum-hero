@@ -19,7 +19,7 @@ import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart' as kakao;
 
-Future<void> kakaoLogin() async {
+Future<String?> kakaoLogin() async {
   // 1. 카카오톡 사용 혹은 계정을 이용하여 카카오 로그인
   if (await kakao.isKakaoTalkInstalled()) {
     await kakao.UserApi.instance.loginWithKakaoTalk();
@@ -58,4 +58,5 @@ Future<void> kakaoLogin() async {
 
   // 5. DB 에 유저 데이터 동록
   await maybeCreateUser(credential.user!);
+  return kakaoUser.properties?['nickname'];
 }

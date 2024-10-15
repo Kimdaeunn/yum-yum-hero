@@ -27,7 +27,8 @@ void main() async {
   await initFirebase();
 
   // Start initial custom actions code
-  await actions.kakaoInit();
+  await actions.initKakao();
+  await actions.initNaverMap();
   // End initial custom actions code
 
   await SupaFlow.initialize();
