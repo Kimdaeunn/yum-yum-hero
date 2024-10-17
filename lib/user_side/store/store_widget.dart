@@ -172,7 +172,10 @@ class _StoreWidgetState extends State<StoreWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 5.0, 0.0),
                                 child: Text(
-                                  '카페 케이크크',
+                                  valueOrDefault<String>(
+                                    widget!.store?.name,
+                                    'Store Name',
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .titleLarge
                                       .override(

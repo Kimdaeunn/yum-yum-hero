@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 
 import 'index.dart'; // Imports other custom widgets
 
+import 'index.dart'; // Imports other custom widgets
+
 import 'package:flutter_naver_map/flutter_naver_map.dart';
 
 class NaverMapWidget extends StatefulWidget {
@@ -52,6 +54,16 @@ class _NaverMapWidgetState extends State<NaverMapWidget> {
             id: place.reference.id, // Use the document ID as the marker ID
             position: position,
           );
+
+          marker.setOnTapListener((NMarker marker) {
+            // 마커를 클릭했을 때 실행할 코드
+            context.pushNamed(
+              'Store',
+              extra: <String, dynamic>{
+                'store': place, // Passing the store record
+              },
+            );
+          });
 
           // Add the marker to the Set
           markerSet.add(marker);
