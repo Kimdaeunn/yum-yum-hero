@@ -79,8 +79,8 @@ class _MapWidgetState extends State<MapWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              StreamBuilder<List<PlacesRecord>>(
-                stream: queryPlacesRecord(),
+              StreamBuilder<List<StoresRecord>>(
+                stream: queryStoresRecord(),
                 builder: (context, snapshot) {
                   // Customize what your widget looks like when it's loading.
                   if (!snapshot.hasData) {
@@ -95,7 +95,7 @@ class _MapWidgetState extends State<MapWidget> {
                       ),
                     );
                   }
-                  List<PlacesRecord> naverMapWidgetPlacesRecordList =
+                  List<StoresRecord> naverMapWidgetStoresRecordList =
                       snapshot.data!;
 
                   return Container(
@@ -104,7 +104,7 @@ class _MapWidgetState extends State<MapWidget> {
                     child: custom_widgets.NaverMapWidget(
                       width: double.infinity,
                       height: MediaQuery.sizeOf(context).height * 0.8,
-                      placeList: naverMapWidgetPlacesRecordList,
+                      placeList: naverMapWidgetStoresRecordList,
                     ),
                   );
                 },

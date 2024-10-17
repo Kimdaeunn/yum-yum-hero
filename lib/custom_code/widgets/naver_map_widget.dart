@@ -23,7 +23,7 @@ class NaverMapWidget extends StatefulWidget {
 
   final double? width;
   final double? height;
-  final List<PlacesRecord>? placeList;
+  final List<StoresRecord>? placeList;
 
   @override
   State<NaverMapWidget> createState() => _NaverMapWidgetState();

@@ -51,6 +51,11 @@ class StoresRecord extends FirestoreRecord {
   String get closeTime => _closeTime ?? '';
   bool hasCloseTime() => _closeTime != null;
 
+  // "location" field.
+  LatLng? _location;
+  LatLng? get location => _location;
+  bool hasLocation() => _location != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _img = snapshotData['img'] as String?;
@@ -59,6 +64,7 @@ class StoresRecord extends FirestoreRecord {
     _area = snapshotData['area'] as String?;
     _openTime = snapshotData['openTime'] as String?;
     _closeTime = snapshotData['closeTime'] as String?;
+    _location = snapshotData['location'] as LatLng?;
   }
 
   static CollectionReference get collection =>
@@ -102,6 +108,7 @@ Map<String, dynamic> createStoresRecordData({
   String? area,
   String? openTime,
   String? closeTime,
+  LatLng? location,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -112,6 +119,7 @@ Map<String, dynamic> createStoresRecordData({
       'area': area,
       'openTime': openTime,
       'closeTime': closeTime,
+      'location': location,
     }.withoutNulls,
   );
 
@@ -129,7 +137,8 @@ class StoresRecordDocumentEquality implements Equality<StoresRecord> {
         e1?.numRatings == e2?.numRatings &&
         e1?.area == e2?.area &&
         e1?.openTime == e2?.openTime &&
-        e1?.closeTime == e2?.closeTime;
+        e1?.closeTime == e2?.closeTime &&
+        e1?.location == e2?.location;
   }
 
   @override
@@ -140,7 +149,8 @@ class StoresRecordDocumentEquality implements Equality<StoresRecord> {
         e?.numRatings,
         e?.area,
         e?.openTime,
-        e?.closeTime
+        e?.closeTime,
+        e?.location
       ]);
 
   @override
